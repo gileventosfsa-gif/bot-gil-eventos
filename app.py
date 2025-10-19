@@ -9,7 +9,7 @@ app = Flask(__name__)
 ARQUIVO_PEDIDOS = "pedidos.json"
 
 # Data do evento
-DATA_EVENTO = "01/01/2000"  # qualquer data anterior a hoje
+DATA_EVENTO = "28/10/2025"  # coloque a data real do evento
 
 # Cardápio
 CARDAPIO = {
@@ -48,7 +48,8 @@ pedidos = carregar_pedidos()
 # Rotas
 @app.route("/")
 def index():
-    return render_template("index.html", cardapio=CARDAPIO)
+    hoje = datetime.now().strftime("%d/%m/%Y")
+    return render_template("index.html", cardapio=CARDAPIO, current_date=hoje, DATA_EVENTO=DATA_EVENTO)
 
 @app.route("/pedido", methods=["POST"])
 def novo_pedido():
