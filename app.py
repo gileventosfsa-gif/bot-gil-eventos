@@ -9,7 +9,7 @@ app = Flask(__name__)
 ARQUIVO_PEDIDOS = "pedidos.json"
 
 # Data do evento
-DATA_EVENTO = "28/10/2025"
+DATA_EVENTO = "01/01/2000"  # qualquer data anterior a hoje
 
 # Cardápio
 CARDAPIO = {
