@@ -19,7 +19,7 @@ CARDAPIO = {
     "Roska de Limão": {"pre_venda": 8.0, "dia_evento": 10.0},
     "Roska de Uva": {"pre_venda": 8.0, "dia_evento": 10.0},
     "Roska de Maracujá": {"pre_venda": 8.0, "dia_evento": 10.0},
-    "Roska Mix Premium": {"pre_venda": 18.0, "dia_evento": 22.0},
+    "Roska Mix Premium": {"pre_venda": 12.0, "dia_evento": 15.0},
     "Gin Tônica / Gin Tropical": {"pre_venda": 17.0, "dia_evento": 20.0},
     "Aperol Spritz": {"pre_venda": 22.0, "dia_evento": 25.0},
 }
