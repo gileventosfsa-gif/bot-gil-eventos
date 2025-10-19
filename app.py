@@ -4,7 +4,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-DATA_EVENTO = "28/10/2025"
+DATA_EVENTO = "01/01/2000"
 ARQUIVO_PEDIDOS = "pedidos.json"
 
 CARDAPIO = {
