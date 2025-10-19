@@ -1,0 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f9f9f9;
+}
+h1 { color: #333; }
+form, ul { background: #fff; padding: 20px; border-radius: 8px; }
+button { padding: 8px 16px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+button:hover { background: #45a049; }
