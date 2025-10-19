@@ -1,12 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for
 import json
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
-DATA_EVENTO = "01/01/2000"
+# Arquivo de pedidos
 ARQUIVO_PEDIDOS = "pedidos.json"
 
+# Data do evento
+DATA_EVENTO = "28/10/2025"
+
+# Cardápio
 CARDAPIO = {
     "Caipirinha / Caipiroska": {"pre_venda": 8.0, "dia_evento": 10.0},
     "Roska de Morango": {"pre_venda": 12.0, "dia_evento": 15.0},
@@ -19,6 +24,7 @@ CARDAPIO = {
     "Aperol Spritz": {"pre_venda": 22.0, "dia_evento": 25.0},
 }
 
+# Funções para pedidos
 def carregar_pedidos():
     try:
         with open(ARQUIVO_PEDIDOS, "r", encoding="utf-8") as f:
@@ -30,14 +36,16 @@ def persistir_pedidos(pedidos):
     with open(ARQUIVO_PEDIDOS, "w", encoding="utf-8") as f:
         json.dump(pedidos, f, indent=4, ensure_ascii=False)
 
-pedidos = carregar_pedidos()
-
 def preco_unitario(nome_item):
     hoje = datetime.now().strftime("%d/%m/%Y")
     if nome_item in CARDAPIO:
         return CARDAPIO[nome_item]["pre_venda"] if hoje < DATA_EVENTO else CARDAPIO[nome_item]["dia_evento"]
     return 0.0
 
+# Carrega pedidos existentes
+pedidos = carregar_pedidos()
+
+# Rotas
 @app.route("/")
 def index():
     return render_template("index.html", cardapio=CARDAPIO)
@@ -73,5 +81,7 @@ def meus_pedidos(cliente):
 def admin():
     return render_template("admin.html", pedidos=pedidos)
 
+# Inicialização do app
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
