@@ -13,7 +13,10 @@
 <label>Escolha um drink:</label>
 <select name="item">
   {% for nome in cardapio.keys() %}
-    <option value="{{nome}}">{{nome}} - R$ {{cardapio[nome]['pre_venda']}}</option>
+    <option value="{{nome}}">
+      {{nome}} - R$ 
+      {{ cardapio[nome]['pre_venda'] if current_date < DATA_EVENTO else cardapio[nome]['dia_evento'] }}
+    </option>
   {% endfor %}
 </select><br><br>
 <label>Quantidade:</label>
