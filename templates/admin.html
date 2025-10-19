@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Admin - Pedidos</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Admin - Todos os Pedidos</h1>
+<ul>
+{% for p in pedidos %}
+  <li>{{p.cliente}}: {{p.drink}} ×{{p.quantidade}} — R$ {{p.total_price}} — {{p.status}}</li>
+{% endfor %}
+</ul>
+<a href="/">Voltar</a>
+</body>
+</html>
